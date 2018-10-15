@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @font-face{
+            font-family: 'Fuente super cool';
+            src: url(fonts/collegiateHeavyOutlineMedium.ttf);
+        }
+
+        #login{
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 350px;
+            height: 700px;
+            color: #fff;
+            padding: 50px 50px 50px 50px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1{
+            /*font-family: 'Fuente super cool';*/
+            font-family:'Calibri';
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"]{
+            background-color: #333333;
+            width: 100%;
+            font-size: 20px;
+            border: 0;
+            border-radius: 5px;
+            padding: 15px;
+            box-sizing: border-box;
+            color: #ffffff;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        input[type="button"]{
+            width: 100%;
+            font-size: 18px;
+            color: white;
+            background: red;
+            border: 0;
+            border-radius: 5px;
+            padding: 15px;
+            font-weight: bold;
+            margin: 5px 0 5px 0;
+        }
+       
+    </style>
+</head>
+<body style="background-color: rgb(0, 0, 0);background-image: url(img/fondo.jpg);background-repeat: no-repeat;background-size:cover;">
+    <img src="img/logo.png">
+    <div id="login">
+        <h1>Sign In</h1>
+        <input type="text" placeholder="Email or phone number">
+        <input type="password" placeholder="Password">
+        <!--button type="button">Sign In</button-->
+        <input type="button" value="Sign In">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Need help?</a>
+    </div>
+    <br>
+</body>
+</html>
