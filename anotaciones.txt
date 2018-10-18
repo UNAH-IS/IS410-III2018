@@ -1,0 +1,127 @@
+﻿HTML
+HyperText Markup Language: Se utiliza para definir la estructura de una pagina web.
+
+Xtensible Markup Language: Lenguaje para almacenar y transportar datos.
+    
+    Comparaciones CSV vs XML
+    Formato CSV:
+        Juan,Perez,35,M
+    
+    Formato XML
+        <persona>
+            <nombre>Juan</nombre>
+            <apellido>Perez</apellido>
+            <edad>35</edad>
+            <genero>M</genero>
+            <direccion>Sabanagrande, Francisco Morazan</direccion>
+        </persona>
+
+    Formato JSON
+        persona = {
+            nombre:"Juan",
+            apellido:"Perez",
+            edad:35,
+            genero:"M"
+        }
+
+    
+CSS 
+Cascading Style Sheets: Lenguaje para aplicar estilos a la estructura html.
+
+Javascript (No tiene nada que ver con Java.)
+Lenguaje de programación para dar dinamismo a una pagina web del lado del cliente.
+
+
+Editores:
+Nodepad
+Notepad++
+Sublime
+Visual Studio Code
+Brackets
+Atom
+Gedit
+Kate
+
+
+
+Sintaxis de una etiqueta:
+
+<nombre-etiqueta atributo1="valor1" atributo2="valor2" ... atributoN="valorN">
+    CONTENIDO DE LA ETIQUETA
+</nombre-etiqueta>
+
+WindowsApacheMysqlPHP
+LinuxApacheMysqlPHPPython
+MacApacheMysqlPHP
+XsoApacheMysqlPHP
+
+
+Carpetas publicas:
+    www
+    htdocs
+
+Direcciones IP: Sirven para identificar un equipo en una red privada o en internet.
+
+Tipos de direcciones:
+    Privadas: No son accesibles desde internet, solo en una red interna.
+    Publicas: Pueden ser accedidas desde cualquier parte del mundo.
+
+    0-255.0-255.0-255.0-255
+
+
+Hosting: Espacio en la nube (Son las computadoras de otras personas):   
+        Disco Duro
+        Capacidad de memoria RAM
+        Software instalado
+        IP publica
+
+Proveedores de hosting:
+    godaddy
+    hostgator
+    heroku
+    ....
+
+Dominio: Es como el alias que se le da a una IP publica.
+
+
+Direccion IP Local: 127.0.0.1
+Nombre de dominio local: localhost
+
+
+CSS (Cascading Style Sheets):
+Formas de incluir CSS en una pagina web:
+    1. En linea: Se hace utilizando el ATRIBUTO style sobre la etiqueta a la cual se quiere aplicar los estilos.
+        Sintaxis CSS:
+            nombre-regla-css-1: valor1;nombre-regla-css-2: valor2;...;nombre-regla-css-N: valorN;
+
+
+    2. En el encabezado de la página:  Se aplican utilizando la ETIQUETA <style> dentro de la etiqueta <head>.
+        Dentro de la etiqueta <style> se escriben los estilos agrupados mediante compontenes llamados selectores.
+        Los selectores pueden ser:
+            *Nombres de etiquetas
+            *Identificadores (Id)
+            *Nombre de clases CSS
+
+        Sintaxis para aplicar estilos con selectores:
+            nombre-selector{
+                nombre-regla-css-1: valor1;
+                nombre-regla-css-2: valor2;
+                ...;
+                nombre-regla-css-N: valorN;
+            }
+    3. Utilizando archivos externos.
+
+
+
+
+Codigos de colores:
+    RGB (Red, Green, Blue)=> (0-255,0-255,0-255)
+            (0,0,0) => Negro
+            (255,255,255) => Blanco
+            (255,0,0) => Rojo
+            (0,255,0) => Verde
+            (15,20,255) => Tirando a azul
+    RGB Hexadecimal: 
+            #000000 => Negro
+            #FFFFFF => Blanco
+            #FF0000 => Rojo

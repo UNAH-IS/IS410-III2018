@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <style>
+        .btn-danger{
+            background-color:black;
+            border-color:black;
+        }
+    
+        .btn-danger:hover{
+            background-color:gray;
+            border-color:gray;
+        }
+
+        .btn-danger:focus{
+            background-color:gray;
+            border-color:gray;
+        }
+
+        #titulo-principal{
+            color: green;
+        }
+
+        .titulos{
+            color: orange;
+        }
+
+        h1{
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <!--Prioridad CSS diferentes tipos de selectores:
+        1. Estilo en linea
+        2. Selector por #id
+        3. Selector de .ClaseCSS
+        4. Selector por nombre de etiqueta
+    -->
+    <h1 class="titulos" id="titulo-principal" style="color: red">Formulario</h1>
+    <form style="width: 500px">
+        <table class="table table-striped table-hover">
+           <tr><td><input class="form-control" type="text" placeholder="Introduzca su nombre" size="50" id="txt-nombre" name="txt-nombre"></td></tr>
+           <tr><td><input class="form-control" type="date"placeholder="Fecha"></td></tr>
+           <tr><td><input class="form-control" type="email"placeholder="Correo"></td></tr>
+           <tr><td><input class="form-control" type="color"placeholder="Color"></td></tr>
+           <tr><td><input class="form-control" type="number"placeholder="Numero"></td></tr>
+           <tr><td><input class="form-control" type="month"placeholder="Mes"></td></tr>
+           <tr><td><input class="form-control" type="range"placeholder="Rango"></td></tr>
+           <tr><td><input class="form-control" type="datetime-local"placeholder="Fecha/Hora"></td></tr>
+           <tr><td><input class="form-control" type="tel" placeholder="Telefono"></td></tr>
+           <tr>
+                <td>
+                    Gustos:
+                    <input type="checkbox" id="chk-1" name="chk-gustos[]" value="1"><label for="chk-1">Baleadas</label>
+                    <input type="checkbox" id="chk-2" name="chk-gustos[]" value="2"><label for="chk-2">Sopa de mondongo</label>
+                    <input type="checkbox" id="chk-3" name="chk-gustos[]" value="3"><label for="chk-3">Pupusas</label>
+                    <input type="checkbox" id="chk-4" name="chk-gustos[]" value="4"><label for="chk-4">Fresco de maracuya</label>
+                    <label><input type="checkbox" name="chk-gustos[]" value="5">Horchata</label>
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td>
+                    Genero: 
+                    <label>Femenino<input type="radio" name="rbt-genero" value="F"></label>
+                    <label>Masculino<input type="radio" name="rbt-genero" value="M"></label>
+                </td>
+            </tr>
+
+            <tr><td><textarea class="form-control" placeholder="Direccion" rows="10" cols="40">Colonia Kenide</textarea></td></tr>
+            <tr>
+                <td>
+                    Pais de nacimiento: 
+                    <select class="form-control">
+                        <option value="-">Seleccione un país</option>
+                        <option value="1">Honduras</option>
+                        <option value="2">Nicaragua</option>
+                        <option value="3">Guatemala</option>
+                        <option value="4">El Salvador</option>
+                        <option value="5">Costa Rica</option>
+                        <option value="6">Panama</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Paises que he visitado:
+                    <select class="form-control" multiple>
+                        <option value="-">Seleccione un país</option>
+                        <option value="1">Honduras</option>
+                        <option value="2">Nicaragua</option>
+                        <option value="3">Guatemala</option>
+                        <option value="4">El Salvador</option>
+                        <option value="5">Costa Rica</option>
+                        <option value="6">Panama</option>
+                    </select>
+                </td>
+            </tr>
+        <tr>
+            <td>
+                <!--Botones del tipo submit tienen una programación predefinida para realizar peticiones sincronas utilizando la etiqueta form-->
+                <button class="btn btn-primary" type="submit">Click aquí</button>
+                <input class="btn btn-secondary" type="submit" value="Click aquí">
+
+                <!--Botones del tipo button, son botones sin funcionalidad, el programador les da cualquier funcionalidad utilizando javascript. -->
+                <button class="btn btn-success" type="button">Click aquí</button>
+                <input class="btn btn-danger" type="button" value="Click aquí">
+            </td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>
