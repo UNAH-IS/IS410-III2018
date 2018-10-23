@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hola mundo js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+        //Para que sirve Javascript
+        /*
+        * Para acceder al Document Object Model (DOM)
+        * Gestionar eventos (Click, Scroll.. Los eventos son acciones)
+        * Peticiones asincronas con el servidor.
+        */
+        var nombre = "Juan";
+        var a;
+        a = 5;
+        a = "Hola";
+
+        /*
+        Tipos de datos:
+            Texto
+            Enteros
+            Flotantes
+            Boleanos
+            Arreglos
+            Objetos -> JavaScript Object Notation
+        */
+
+        var persona = {};//Objeto vacio
+        var persona = new Object();//Objeto vacio
+        
+        var persona = {
+            nombre:"Pedro",
+            apellido:"Perez",
+            edad:18,
+            fechaNacimiento:{
+                dia:15,
+                mes:"Enero",
+                anio:2000
+            }
+        };
+
+        //En caso de definir una funcion como variable esta tiene que estar definida antes de usarla.
+        var restar = function(a,b){
+            return a-b;
+        }
+
+        document.write("<b>Hola "+persona.nombre+"</b>");
+        console.log("La suma es "+sumar(5,5));
+        console.log("La resta es "+restar(5,5));
+        console.error("Este es un error, de mentiras");
+
+        for(var i = 0; i<5; i++){
+            //alert("Hola mundo");
+        }
+
+        function sumar(a,b){
+            return a + b;
+        }
+
+        
+    </script>
+</body>
+</html>
