@@ -40,8 +40,13 @@
                 dia:15,
                 mes:"Enero",
                 anio:2000
+            },
+            registrar:function(){
+                console.log("Se registrara una persona"); //En este punto no se llama a la funcion, solo se asigna
             }
         };
+
+        persona.registrar(); //Llamar a la funcion registrar.
 
         //En caso de definir una funcion como variable esta tiene que estar definida antes de usarla.
         var restar = function(a,b){
@@ -60,6 +65,37 @@
         function sumar(a,b){
             return a + b;
         }
+
+        function mostrarMensaje(){
+            console.log("Hola Mundo");
+            return 10;
+        }
+
+        function funcionQueEjecutaOtraFuncion(f){
+            f();
+        }
+
+        mostrarMensaje();
+
+        funcionQueEjecutaOtraFuncion(mostrarMensaje);
+        funcionQueEjecutaOtraFuncion(function(){
+            console.log("Esta es una funcion anonima");
+        });
+        //funcionQueEjecutaOtraFuncion(mostrarMensaje()); //En este caso fallaría
+        //funcionQueEjecutaOtraFuncion(55); //Un caso como este no funcionaria
+
+        (function(){
+            console.log("Que es esto!! x_x");
+        })();
+
+        /*
+        Esto es equivalente al planteamiento anterior.
+        function cualquierFuncion(){
+            console.log("Cualquier cosa");
+        }
+
+        cualquierFuncion();
+        */
 
         
     </script>
