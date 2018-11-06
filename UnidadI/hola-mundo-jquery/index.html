@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input id="usuario" type="text" placeholder="Usuario">
+    <input id="password" type="password" placeholder="Password">
+    <button id="btn-login" type="button">Login</button>
+    <button id="btn-ocultar" type="button">Ocultar</button>
+    <button id="btn-mostrar" type="button">Mostrar</button>
+    <div id="resultado" style="background-color:black; color:white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, odio!</div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("#btn-login").click(function(){
+            //Javascript nativo
+            /*console.log("Usuario: " + document.getElementById("usuario").value);
+            console.log("Password: " + document.getElementById("password").value);
+            document.getElementById("resultado").innerHTML = */
+
+            //Utilizando jquery:
+
+            console.log("(jQuery)Usuario: " + $("#usuario").val());
+            console.log("(jQuery)Password: " + $("#password").val());
+            
+            $("#resultado").append("(jQuery)Usuario: " + $("#usuario").val()+"<br>");
+            $("#resultado").append("(jQuery)Password: " + $("#password").val());
+            //Consultar etiquetas por nombre de clase:
+            //$(".nombreClase")
+
+            //Consultar por nombre de etiqueta:
+            //$("nombreEtiqueta"); //Ejemplo: $("h1")
+
+            //Filtros combinados
+            //$("input[name='usuario']")
+        });
+
+
+        $("#btn-ocultar").click(function(){
+            //$("#resultado").css("display","none");
+            $("#resultado").fadeOut(500);
+        });
+
+        $("#btn-mostrar").click(function(){
+            //$("#resultado").css("display","block");
+            $("#resultado").fadeIn(500);
+        });
+    </script>
+</body>
+</html>
+
+
+<!--
+
+    manipular el árbol DOM, 
+    manejar eventos,
+    desarrollar animaciones
+    agregar interacción con la técnica AJAX a páginas web.
+
+-->
