@@ -1,3 +1,15 @@
+<!--
+
+
+OJO!!!!!!!!!!!!
+Este archivo no se esta utilizando, la logica se paso a index.php
+
+
+-->
+
+
+
+
 <?php
     $archivo = fopen("usuarios.csv","a+");// w: Write, r: Read, a+: Append/Anexar
     fwrite($archivo,
