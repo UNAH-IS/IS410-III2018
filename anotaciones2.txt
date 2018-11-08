@@ -3,6 +3,13 @@ En desarrollo web es posible transmitir información al servidor de las siguient
         -Tener todas las etiquetas de formularios dentro de la etiqueta form.
         -En el atributo action de la etiqueta form se debe indicar el recurso/pagina del lado del servidor que se encargará de procesar la información y dar una respuesta.
         -Se debe definir el metodo de envio de información utilizando el atributo method en la etiqueta form. Los metodos más comunes son GET y POST.
-        -Para desencadenar la peticion/solicitud es necesario un boton del tipo submit, este tipo de boton encapsulara la información y la enviara al recurso indicado en el atributo action de la etiqueta form.
+            *GET: Envia la información a traves de la URL, utiizando el formato URLEncoded:
+                
+                pagina?nombre1=valor1&nombre2=valor2& ... &nombreN=valorN
 
+            *POST: Encapsula los datos y los envia no visibles al usuario.
+
+        -Para desencadenar la peticion/solicitud es necesario un boton del tipo submit, este tipo de boton encapsulara la información y la enviara al recurso indicado en el atributo action de la etiqueta form.
+        Todos las etiquetas que son componentes de formulario tienen que tener el atributo name.
+        
     *Peticiones asincronas

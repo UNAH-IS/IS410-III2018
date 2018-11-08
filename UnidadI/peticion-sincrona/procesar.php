@@ -1,3 +1,15 @@
+<?php
+    $archivo = fopen("usuarios.csv","a+");// w: Write, r: Read, a+: Append/Anexar
+    fwrite($archivo,
+        $_POST["nombre"].",".
+        $_POST["apellido"].",".
+        $_POST["password"].",".
+        $_POST["edad"].",".
+        $_POST["fecha"]."\n"
+    ); //Escribir una linea en el archivo.
+    fclose($archivo);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +37,11 @@
 
 
         echo "Nombre completo: " . $arreglo["nombre"]." ".$arreglo["apellido"];*/
-        
-        echo "Nombre: " . $_GET["nombre"]."<br>";
-        echo "Apellido: " . $_GET["apellido"]."<br>";
-        echo "Edad: " . $_GET["edad"]."<br>";
-        echo "Fecha: " . $_GET["fecha"]."<br>";
+        ///sleep(10);//Hacer una pausa de 10 segundos
+        echo "Nombre: " . $_POST["nombre"]."<br>";
+        echo "Apellido: " . $_POST["apellido"]."<br>";
+        echo "Edad: " . $_POST["edad"]."<br>";
+        echo "Fecha: " . $_POST["fecha"]."<br>";
     ?>
 </body>
 </html>
