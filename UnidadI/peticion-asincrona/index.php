@@ -20,6 +20,8 @@
             <option value="4">El Salvador</option>
         </select><br>
         <button id="btn-guardar" name="btn-guardar" type="button">Guardar información</button>
+        <br>
+        <img id="loading" src="img/loading.gif" style="display:none;">
     </form>
     <div>
         <table>
@@ -30,18 +32,17 @@
                 <td>Edad</td>
                 <td>Fecha</td>
             </thead>
-            <tbody>
+            <tbody id="contenido-usuarios">
                 <?php
-                    $archivo = fopen("usuarios.csv","r");// w: Write, r: Read, a+: Append/Anexar
+                    $archivo = fopen("usuarios.json","r");// w: Write, r: Read, a+: Append/Anexar
                     while(($linea = fgets($archivo))){ //Esto lee una linea.
-                        $partes = explode(",",$linea); //Retorna un arreglo con cada token
-                        
+                        $registro = json_decode($linea,true);//Convierte una cadena que esta en formato json a un arreglo asociativo
                         echo    "<tr>
-                                    <td>$partes[0]</td>
-                                    <td>$partes[1]</td>
-                                    <td>$partes[2]</td>
-                                    <td>$partes[3]</td>
-                                    <td>$partes[4]</td>
+                                    <td>".$registro['nombre']."</td>
+                                    <td>".$registro['apellido']."</td>
+                                    <td>".$registro['edad']."</td>
+                                    <td>".$registro['fecha']."</td>
+                                    <td>".$registro['password']."</td>
                                 </tr>";
                     }
                     fclose($archivo);
@@ -52,6 +53,7 @@
     <script src="js/jquery.min.js"></script>
     <script>
         $("#btn-guardar").click(function(){
+            $("#loading").fadeIn(50);
             var parametros =`nombre=${$("#nombre").val()}&apellido=${$("#apellido").val()}&password=${$("#password").val()}&edad=${$("#edad").val()}&fecha=${$("#fecha").val()}&pais=${$("#pais").val()}`;
 
             console.log("El cliente envía esta información: "+parametros);
@@ -61,11 +63,27 @@
                 url:"procesar.php",
                 method:"GET",
                 data: parametros,  //Enviar la información en formato URL Encoded
+                dataType:"json",//El valor por defecto de la respuesta es HTML
                 success:function(respuesta){
-                    console.log("El servidor DICE: "+respuesta);
-                } 
+                    $("#loading").fadeOut(50);
+                    $("#contenido-usuarios").append(
+                        `<tr>
+                            <td>${respuesta.nombre}</td>
+                            <td>${respuesta.apellido}</td>
+                            <td>${respuesta.edad}</td>
+                            <td>${respuesta.fecha}</td>
+                            <td>${respuesta.password}</td>
+                        </tr>`
+                    );//Anexar contenido al cuerpo de la tabla html
+                    console.log("El servidor DICE: "+respuesta.nombre);
+                },
+                error:function(err){
+                    console.log(err);
+                }
             });
         });
+
+        //XMLHttpRequest: Objeto para hacer peticiones via AJAX
     </script>
 </body>
 </html>
