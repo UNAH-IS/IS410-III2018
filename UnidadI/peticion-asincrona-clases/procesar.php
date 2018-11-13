@@ -10,4 +10,7 @@
     fwrite($archivo, json_encode($_GET) . "\n");
     fclose($archivo);
     echo json_encode($_GET); //Convertir un arreglo asociativo a una cadena en formato json
+
+
+
 ?>
