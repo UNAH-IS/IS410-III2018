@@ -8,18 +8,25 @@
 </head>
 <body>
     <?php
-        include("class/class-persona.php");
+        //include("class/class-persona.php");
+        include("class/class-alumno.php");
 
-        $a = 5;
-        $p = new Persona();
-        $p->nombre = "Juan";
-        $p->apellido = "Perez";
-        $p->edad = 44;
-        $p->password = "asd.456";
+        /*$a = 5;
+        $p = new Persona("Pedro","Martinez",33,"asd.456","Honduras");*/
+        //$p = new Persona(); //Toma todos los valores null por defecto, simulación de sobrecarga
+        /*$p->setNombre("Juan");
+        $p->setApellido("Perez");
+        $p->setEdad(44);
+        $p->setPassword("asd.456");*/
 
-        echo "Datos del objeto p:<br>";
-        echo "Nombre: " . $p->nombre;
+        //echo "<br>Datos del objeto p:<br>";
+        /*echo "Nombre: " . $p->getNombre()."<br>";
+        echo "Apellido: " . $p->getApellido();*/
+        //echo $p;
         
+        ///Pruebas de herencia:
+        $a = new Alumno("20012312",4,60,7);       
+
     ?>
     <?php include("pie-pagina.html"); ?>
 </body>

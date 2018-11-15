@@ -1,0 +1,27 @@
+Modificadores de acceso (Aplicar a atributos y metodos)
+public: Se puede acceder al atributo/metodo desde cualquier parte.
+private: No se pueden acceder a los atributos/metodos desde fuera de la clase.
+
+
+Pilares de la Programación Orientada a Objetos
+
+*Encapsulación: Proteger los atributos internos de una clase con la finalidad de evitar modificaciones o alteraciones no intencionales. Tecnicamente se aplica encapsulación definiendo atributos privados y acceder a ellos mediante metodos publicos.
+
+*Abstracción: Es la funcionalidad que permite estructurar el codigo de tal forma que otros programadores no necesariamente saben que es lo que hace internamente, es decir se abstraen de su composición fisica y logica.
+
+*Herencia: Es la funcionalidad que permite identificar atributos/metodos en comun entre un conjunto de clases para encapsularlos en una nueva clase que es conocida como clase padre/super clase/clase base, luego las clases que heredan los atributos y metodos de la clase padre se les conoce como clases hijas/sub clases/clases derivadas. Uno de los objetivos de la herencia es la reutilización de código.
+    Java/PHP:
+        ClaseHija extends ClasePadre{}
+
+*Polimorfismo:
+
+
+Constructor:
+Es un metodo, el primero en ejecutarse al instanciar una clase.
+Se utilizan usualmente para inicializar los valores internos de los atributos de la clase.
+Debe tener el mismo nombre de la clase (Java)
+El nombre del constructor debe ser __construct (PHP)
+El constructor debe ser public
+Puede recibir parametros
+Se puede sobrecargar (Java), (Sobrecarga: son metodos con mismo nombre pero diferente cantidad o tipos de parametros).
+No se puede sobrecargar al igual que cualquier otro metodo(PHP, no existe la sobrecarga de metodos, se puede simular).
