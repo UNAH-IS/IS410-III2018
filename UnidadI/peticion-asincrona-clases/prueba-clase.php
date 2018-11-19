@@ -25,8 +25,13 @@
         //echo $p;
         
         ///Pruebas de herencia:
-        $a = new Alumno("20012312",4,60,7);       
+        /*$a = new Alumno("Juan","Perez",33,"asd.456","Honduras","12/12/2012","20012312",4,60,7);
+        echo "Registro: " . $a->__toString();*/
 
+        //$p = new Persona("Pedro","Martinez",33,"asd.456","Honduras");
+
+        $a = new Alumno("Juan","Perez",33,"asd.456","Honduras","12/12/2012","20012312",4,60,7);
+        echo "Registro: " . $a->__toString();
     ?>
     <?php include("pie-pagina.html"); ?>
 </body>

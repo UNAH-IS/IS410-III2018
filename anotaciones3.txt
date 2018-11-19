@@ -13,6 +13,31 @@ Pilares de la Programación Orientada a Objetos
     Java/PHP:
         ClaseHija extends ClasePadre{}
 
+    Sobreescritura de metodos: Volver a escribir un metodo en una clase hija que previamente estaba definido en su clase padre. Los metodos sobreescritos pueden tener una funcinalidad completamente diferente.
+    Es posible acceder a metodos de la clase padre utilizando parent::nombreMetodo()
+
+    Clases Abstractas:
+        También se conocen como clases resumen, son utilizadas generalmente para definir estructuras de clases padres.
+        Caracteristicas:
+            No se pueden instanciar
+            Debe tener el modificador abstract
+            Puede tener o no metodos abstractos
+            En caso de tener al menos un metodo abstracto la clase debe ser abstracta.
+            Los metodos abstractos no tienen cuerpo, solo se definen.
+            Los metodos abstractos se deben sobreescribir en clases hijas.
+
+    Interfaces (No tiene que ver con GUI)
+        Algunos las llaman clases abstractas puras
+        No se pueden instanciar
+        No tienen constructor
+        Todos sus metodos son abstractos
+        Todos sus atributos son constantes y static.
+        Para aplicar herencia y definir una interfaz como padre debe utilizar implements
+        En caso de aplicar herencia entre interfaz e interfaz se debe utilizar extends
+        Todos los atributos y metodos de una interfaz deben ser publicos.
+
+
+
 *Polimorfismo:
 
 

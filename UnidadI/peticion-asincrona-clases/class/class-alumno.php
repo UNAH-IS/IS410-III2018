@@ -8,24 +8,28 @@ class Alumno extends Persona{
 	private $cantidadClasesMatriculadas;
 
 	public function __construct(
+		$nombre = null,
+		$apellido = null,
+		$edad = null,
+		$password = null,
+		$pais = null,
+		$fecha = null,
 		$numeroCuenta = null,
 		$asignaturasAprobadas = null,
 		$promedio = null,
 		$cantidadClasesMatriculadas = null
 	){
+		parent::__construct($nombre,$apellido,$edad,$password,$pais,$fecha);
 		$this->numeroCuenta = $numeroCuenta;
 		$this->asignaturasAprobadas = $asignaturasAprobadas;
 		$this->promedio = $promedio;
 		$this->cantidadClasesMatriculadas = $cantidadClasesMatriculadas;
 	}
 
+	//Sobreescritura de metodos
 	public function __toString(){
-		$var = "Alumno{"
-		."numeroCuenta: ".$this->numeroCuenta." , "
-		."asignaturasAprobadas: ".$this->asignaturasAprobadas." , "
-		."promedio: ".$this->promedio." , "
-		."cantidadClasesMatriculadas: ".$this->cantidadClasesMatriculadas;
-		return $var."}";
+		//return "$this->nombre,$this->apellido,$this->edad,$this->numeroCuenta,$this->asignaturasAprobadas,$this->promedio,$this->cantidadClasesMatriculadas";
+		return parent::__toString() . ",$this->numeroCuenta,$this->asignaturasAprobadas,$this->promedio,$this->cantidadClasesMatriculadas";
 	}
 
 	public function getNumeroCuenta(){
@@ -57,5 +61,8 @@ class Alumno extends Persona{
 		$this->cantidadClasesMatriculadas = $cantidadClasesMatriculadas;
 	}
 
+	public function matricular(){
+		echo "Se matriculara un alumno";
+	}
 }
 ?>

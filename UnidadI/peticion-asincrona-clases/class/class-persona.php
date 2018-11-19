@@ -1,13 +1,13 @@
 <?php
 
 //POJO: Plain Old Java Object 
-class Persona{
-	private $nombre;
-	private $apellido;
-	private $edad;
-	private $password;
-	private $pais;
-	private $fecha;
+abstract class Persona{
+	protected $nombre;
+	protected $apellido;
+	protected $edad;
+	protected $password;
+	protected $pais;
+	protected $fecha;
 
 	public function __construct(
 		$nombre = null,
@@ -81,7 +81,13 @@ class Persona{
         fwrite($archivo, json_encode($arreglo) . "\n");
         fclose($archivo);
         return json_encode($arreglo);
-    }
+	}
+	
+	public function __toString(){
+		return "$this->nombre,$this->apellido,$this->edad,$this->password,$this->pais,$this->fecha";
+	}
+
+	public abstract function matricular();
 }
 
 ?>
