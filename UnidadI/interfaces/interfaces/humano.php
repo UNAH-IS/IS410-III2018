@@ -1,10 +1,10 @@
 <?php 
 
 interface Humano{
-    
-    public abstract function caminar();
-    public abstract function saltar();
-    public abstract function estudiar();
+    const VIDA_PROMEDIO = 60;
+    public function caminar();
+    public function saltar();
+    public function estudiar();
     
 }
 
