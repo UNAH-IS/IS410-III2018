@@ -13,6 +13,32 @@ $(document).ready(function(){
 			console.error(error);
 		}
 	});
+
+	$.ajax({
+		url:"ajax/listas.php",
+		method:"GET",
+		dataType:"json",
+		success:function(respuesta){
+			console.log(respuesta);
+			for (var i =0;i<respuesta.length;i++){
+				$("#div-listas").html(
+					`<div class="col-md-4" >
+						<div class="well list" id="div-lista-1">
+						<h4>${respuesta[i].titulo}</h4>
+						</div>
+					</div>`+
+					$("#div-listas").html()
+				);
+				for(var j=0;j<respuesta[i].tarjetas.length;i++){
+					console.log(`Tarjeta de la lista ${i}` + respuesta[i].tarjetas[j].titulo);
+				}
+			}
+		},
+		error:function(error){
+			console.error(error);
+			console.error(error.responseText);
+		}
+	});
 });
 
 $("#btn-login").click(function(){
