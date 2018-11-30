@@ -23,14 +23,26 @@ $(document).ready(function(){
 			for (var i =0;i<respuesta.length;i++){
 				$("#div-listas").html(
 					`<div class="col-md-4" >
-						<div class="well list" id="div-lista-1">
+						<div class="well list" id="div-lista-${respuesta[i].codigoLista}">
 						<h4>${respuesta[i].titulo}</h4>
+						<textarea id="texto-tarjeta-${respuesta[i].codigoLista}" placeholder="Nueva tarjeta" class="form-control"></textarea>
+						<br><button onclick="agregarTarjeta(${respuesta[i].codigoLista});" type="button" class="btn btn-success">Agregar tarjeta</button>
+						<hr>
 						</div>
+						
 					</div>`+
 					$("#div-listas").html()
 				);
-				for(var j=0;j<respuesta[i].tarjetas.length;i++){
+				for(var j=0;j<respuesta[i].tarjetas.length;j++){
 					console.log(`Tarjeta de la lista ${i}` + respuesta[i].tarjetas[j].titulo);
+					$(`#div-lista-${respuesta[i].codigoLista}`).append(
+						`<div class="well card">
+							<p>
+								<img src="${respuesta[i].tarjetas[j].urlImagenUsuario}" class="img-responsive img-thumbnail">${respuesta[i].tarjetas[j].titulo}: ${respuesta[i].tarjetas[j].descripcion} 
+								<br><span class="small-date">${respuesta[i].tarjetas[j].fecha}</span>
+							</p>
+						</div>`
+					);
 				}
 			}
 		},
@@ -57,3 +69,22 @@ function agregarTarjeta(numeroLista){
 
 //
 
+
+function agregarTarjeta(codigoLista){
+	alert("Agregar tarjeta con el texto " + $("#texto-tarjeta-"+codigoLista).val() + " a la lista: " + codigoLista + ", El usuario que guarda la tarjeta es: " + $("input[name='rbt-codigo-usuario']:checked").val());
+	//Peticion AJAX para guardar la informacion
+	$.ajax({
+		url:"ajax/tarjetas.php?accion=1", //En este caso accion=1 será guardar
+		data:"codigoLista="+codigoLista+
+				"&textoTarjeta="+$("#texto-tarjeta-"+codigoLista).val()+
+				"&usuario="+$("input[name='rbt-codigo-usuario']:checked").val(),
+		method:"POST",
+		dataType:"json",
+		success:function(respuesta){
+			console.log(respuesta);
+		},
+		error:function(error){
+			console.error(error);
+		}
+	});
+}
