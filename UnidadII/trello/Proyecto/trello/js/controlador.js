@@ -15,7 +15,7 @@ $(document).ready(function(){
 	});
 
 	$.ajax({
-		url:"ajax/listas.php",
+		url:"ajax/listas.php?accion=1",//accion=1 es obtener las listas
 		method:"GET",
 		dataType:"json",
 		success:function(respuesta){
@@ -25,7 +25,9 @@ $(document).ready(function(){
 					`<div class="col-md-4" >
 						<div class="well list" id="div-lista-${respuesta[i].codigoLista}">
 						<h4>${respuesta[i].titulo}</h4>
+						<input id="titulo-tarjeta-${respuesta[i].codigoLista}" type="text" class="form-control" placeholder="Titulo">
 						<textarea id="texto-tarjeta-${respuesta[i].codigoLista}" placeholder="Nueva tarjeta" class="form-control"></textarea>
+						<input id="fecha-tarjeta-${respuesta[i].codigoLista}" type="date" class="form-control" placeholder="Fecha">
 						<br><button onclick="agregarTarjeta(${respuesta[i].codigoLista});" type="button" class="btn btn-success">Agregar tarjeta</button>
 						<hr>
 						</div>
@@ -38,7 +40,7 @@ $(document).ready(function(){
 					$(`#div-lista-${respuesta[i].codigoLista}`).append(
 						`<div class="well card">
 							<p>
-								<img src="${respuesta[i].tarjetas[j].urlImagenUsuario}" class="img-responsive img-thumbnail">${respuesta[i].tarjetas[j].titulo}: ${respuesta[i].tarjetas[j].descripcion} 
+								<img src="${respuesta[i].tarjetas[j].urlImagenUsuario}" class="img-responsive img-thumbnail"><b>${respuesta[i].tarjetas[j].titulo}:</b> ${respuesta[i].tarjetas[j].descripcion} 
 								<br><span class="small-date">${respuesta[i].tarjetas[j].fecha}</span>
 							</p>
 						</div>`
@@ -59,9 +61,35 @@ $("#btn-login").click(function(){
 	$("#user-details").fadeIn(50);
 });
 
-$("#btn-agregar-lista").click(function(){
-	alert("Agregar una lista con el titulo " + $("#txt-texto-tarjeta").val());
-});
+function agregarLista(){
+	alert("Agregar una lista con el titulo " + $("#txt-titulo-lista").val());
+	$.ajax({
+		url:"ajax/listas.php?accion=2", //accion=2 agregar una nueva lista
+		method:"POST",
+		data:"tituloLista="+$("#txt-titulo-lista").val(),
+		dataType:"json",
+		success:function(respuesta){
+			console.log(respuesta);
+			$("#div-listas").html(
+				`<div class="col-md-4" >
+					<div class="well list" id="div-lista-${respuesta.codigoLista}">
+					<h4>${respuesta.titulo}</h4>
+					<input id="titulo-tarjeta-${respuesta.codigoLista}" type="text" class="form-control" placeholder="Titulo">
+					<textarea id="texto-tarjeta-${respuesta.codigoLista}" placeholder="Nueva tarjeta" class="form-control"></textarea>
+					<input id="fecha-tarjeta-${respuesta.codigoLista}" type="date" class="form-control" placeholder="Fecha">
+					<br><button onclick="agregarTarjeta(${respuesta.codigoLista});" type="button" class="btn btn-success">Agregar tarjeta</button>
+					<hr>
+					</div>
+					
+				</div>`+
+				$("#div-listas").html()
+			);
+		},
+		error:function(error){
+			console.error(error);
+		}
+	});
+}
 
 function agregarTarjeta(numeroLista){
 	alert("Ejecutar peticion AJAX para agregar tarjeta a la lista: " + numeroLista + ", El contenido de la tarjeta es: "+$("#txt-tarjeta-lista-" + numeroLista).val());
@@ -71,17 +99,26 @@ function agregarTarjeta(numeroLista){
 
 
 function agregarTarjeta(codigoLista){
-	alert("Agregar tarjeta con el texto " + $("#texto-tarjeta-"+codigoLista).val() + " a la lista: " + codigoLista + ", El usuario que guarda la tarjeta es: " + $("input[name='rbt-codigo-usuario']:checked").val());
+	console.log("Agregar tarjeta con el texto " + $("#texto-tarjeta-"+codigoLista).val() + " a la lista: " + codigoLista + ", El usuario que guarda la tarjeta es: " + $("input[name='rbt-codigo-usuario']:checked").val());
 	//Peticion AJAX para guardar la informacion
 	$.ajax({
 		url:"ajax/tarjetas.php?accion=1", //En este caso accion=1 será guardar
 		data:"codigoLista="+codigoLista+
 				"&textoTarjeta="+$("#texto-tarjeta-"+codigoLista).val()+
+				"&tituloTarjeta="+$("#titulo-tarjeta-"+codigoLista).val()+
+				"&fechaTarjeta="+$("#fecha-tarjeta-"+codigoLista).val()+
 				"&usuario="+$("input[name='rbt-codigo-usuario']:checked").val(),
 		method:"POST",
 		dataType:"json",
 		success:function(respuesta){
 			console.log(respuesta);
+			$("#div-lista-"+codigoLista).append(
+					`<div class="well card">
+						<p>
+							<img src="${respuesta.urlImagenUsuario}" class="img-responsive img-thumbnail"><b>${respuesta.titulo}:</b> ${respuesta.descripcion} 
+							<br><span class="small-date">${respuesta.fecha}</span>
+						</p>
+					</div>`);
 		},
 		error:function(error){
 			console.error(error);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input id="usuario" type="text" placeholder="Usuario">
+    <input id="password" type="password" placeholder="Password">
+    <button id="btn-login" type="button">Login</button>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+        $("#btn-login").click(function(){
+            $.ajax({
+                url:"ajax/login.php",
+                data:"usuario="+$("#usuario").val() + "&password="+$("#password").val(),
+                dataType:"json",
+                method:"POST",
+                success:function(respuesta){
+                    console.log(respuesta);
+                    if (respuesta.estatus == 1){
+                        if (respuesta.tipoUsuario=="cajero")
+                            window.location.href = "cajero.php";//redireccionar
+                        else if (respuesta.tipoUsuario=="admin")
+                            window.location.href = "admin.php";//redireccionar
+                    }else 
+                        alert("Credenciales invalidas");
+                },
+                error:function(error){
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

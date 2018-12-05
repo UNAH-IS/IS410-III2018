@@ -51,7 +51,21 @@ class Lista{
         }
         fclose($archivo);
         return json_encode($registros);
-    }
+	}
+	
+	public function guardarLista(){
+		$archivo = fopen("../data/listas.json","a+");
+		$cantidadFilas = 1;
+		while(($linea = fgets($archivo))){
+			$cantidadFilas++;
+		}
+		//{"codigoLista":"1","titulo":"Lista 1"}
+		$registro["codigoLista"] = $cantidadFilas+1;
+		$registro["titulo"] = $this->tituloLista;
+		fwrite($archivo, json_encode($registro)."\n");
+		fclose($archivo);
+		return json_encode($registro);
+	}
 
 }
 ?>
