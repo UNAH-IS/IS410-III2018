@@ -1,5 +1,4 @@
 <?php
-    session_start(); //Tiene que ser la primera funcion.
     $archivo = fopen("../data/usuarios.json","r");
     while(($linea=fgets($archivo))){
         $registro = json_decode($linea,true);
@@ -9,9 +8,8 @@
         ){
             $registro["estatus"] = "1"; //Acceso exitoso
             $registro["mensaje"] = "Acceso autorizado";
-            $_SESSION["usuario"] = $_POST["usuario"];
-            $_SESSION["tipoUsuario"] = $registro["tipoUsuario"];
-
+            setcookie("usuario",$_POST["usuario"], time() + 3600,"/");
+            setcookie("tipoUsuario",$registro["tipoUsuario"], time() + 3600,"/");
             echo json_encode($registro);
             exit;
         }
